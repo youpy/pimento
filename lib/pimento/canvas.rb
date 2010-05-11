@@ -3,9 +3,9 @@ require 'erb'
 require 'xml'
 
 module Pimento
-  attr_accessor :step
-
   class Canvas
+    attr_accessor :step
+
     def initialize(top, left, width, height)
       @step = 5
       @top = top
