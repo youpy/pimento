@@ -1,6 +1,20 @@
 = pimento
 
-Description goes here.
+Draw graphics using Mac OS X GUI Components
+
+http://gyazo.com/98deb0771307bb144fb47e3709af3f76.png
+
+== Sypnosis
+
+ require 'ubygems'
+ require 'pimento'
+
+ c = Pimento::Canvas.new(0, 0, 300, 200)
+
+ c.point(20, 20)
+ c.line(100, 20, 100, 180)
+
+ c.to_xml.save('foo.xib')
 
 == Note on Patches/Pull Requests
  

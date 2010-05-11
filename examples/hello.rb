@@ -1,3 +1,6 @@
+require 'ubygems'
+require 'pimento'
+
 c = Pimento::Canvas.new(0, 0, 620, 200)
 
 # H
