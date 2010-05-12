@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["youpy"]
-  s.date = %q{2010-05-11}
+  s.date = %q{2010-05-12}
   s.description = %q{Draw graphics using Mac OS X GUI Components}
   s.email = %q{youpy@buycheapviagraonlinenow.com}
   s.extra_rdoc_files = [
@@ -22,17 +22,18 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
      "examples/hello.rb",
      "lib/pimento.rb",
      "lib/pimento/canvas.rb",
      "lib/pimento/dot.rb",
+     "pimento.gemspec",
      "spec/fixtures/1dot.xib",
      "spec/fixtures/empty.xib",
      "spec/pimento_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
-     "template/canvas.xib.erb",
-     "template/subview.erb"
+     "template/canvas.xib.erb"
   ]
   s.homepage = %q{http://github.com/youpy/pimento}
   s.rdoc_options = ["--charset=UTF-8"]
