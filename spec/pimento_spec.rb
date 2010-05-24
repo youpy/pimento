@@ -14,6 +14,8 @@ describe Pimento::Canvas do
     end
 
     it 'should point' do
+      Pimento::Component.should_receive(:for).with(:dot).and_return(Pimento::RoundButton)
+
       @canvas.point(15, 25)
       @canvas.to_xml.to_s.should eql(open(fixture('1dot.xib')).read)
     end
