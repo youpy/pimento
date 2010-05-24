@@ -15,7 +15,6 @@ module Pimento
       end
 
       def for(type)
-        #@@klasses[type].first
         @@klasses[type][rand(@@klasses[type].length)]
       end
     end
