@@ -50,31 +50,30 @@
 					<int key="NSvFlags">256</int>
                                        <object class="NSMutableArray" key="NSSubviews">
                                                <bool key="EncodedWithXMLCoder">YES</bool>
-
-                                               <object class="NSButton" id="741820390">
-                                                       <reference key="NSNextResponder" ref="1006"/>
-                                                       <int key="NSvFlags">268</int>
-                                                       <string key="NSFrame">{{-4, 156}, {39, 38}}</string>
-                                                       <reference key="NSSuperview" ref="1006"/>
-                                                       <bool key="NSEnabled">YES</bool>
-                                                       <object class="NSButtonCell" key="NSCell" id="799499906">
-                                                               <int key="NSCellFlags">67239424</int>
-                                                               <int key="NSCellFlags2">0</int>
-                                                               <string key="NSContents"/>
-                                                               <object class="NSFont" key="NSSupport">
-                                                                       <string key="NSName">LucidaGrande</string>
-                                                                       <double key="NSSize">1.000000e+01</double>
-                                                                       <int key="NSfFlags">2843</int>
-                                                               </object>
-                                                               <reference key="NSControlView" ref="741820390"/>
-                                                               <int key="NSButtonFlags">-2037645057</int>
-                                                               <int key="NSButtonFlags2">135</int>
-                                                               <string key="NSAlternateContents"/>
-                                                               <string key="NSKeyEquivalent"/>
-                                                               <int key="NSPeriodicDelay">200</int>
-                                                               <int key="NSPeriodicInterval">25</int>
-                                                       </object>
-                                               </object>
+<object class="NSButton" id="741820390">
+  <reference key="NSNextResponder" ref="1006"/>
+  <int key="NSvFlags">268</int>
+  <string key="NSFrame">{{-4, 156}, {39, 38}}</string>
+  <reference key="NSSuperview" ref="1006"/>
+  <bool key="NSEnabled">YES</bool>
+  <object class="NSButtonCell" key="NSCell" id="741820391">
+    <int key="NSCellFlags">67239424</int>
+    <int key="NSCellFlags2">0</int>
+    <string key="NSContents"/>
+    <object class="NSFont" key="NSSupport">
+      <string key="NSName">LucidaGrande</string>
+      <double key="NSSize">1.000000e+01</double>
+      <int key="NSfFlags">2843</int>
+    </object>
+    <reference key="NSControlView" ref="741820390"/>
+    <int key="NSButtonFlags">-2037645057</int>
+    <int key="NSButtonFlags2">135</int>
+    <string key="NSAlternateContents"/>
+    <string key="NSKeyEquivalent"/>
+    <int key="NSPeriodicDelay">200</int>
+    <int key="NSPeriodicInterval">25</int>
+  </object>
+</object>
 
                                        </object>
 					<string key="NSFrameSize">{100, 200}</string>
@@ -132,24 +131,24 @@
                                                <object class="NSMutableArray" key="children">
                                                        <bool key="EncodedWithXMLCoder">YES</bool>
 
-                                                       <reference ref="741820390"/>
+                                                       <reference ref="741820391"/>
+
 
                                                </object>
 						<reference key="parent" ref="1005"/>
 					</object>
-
                                        <object class="IBObjectRecord">
-                                               <int key="objectID">4</int>
+                                               <int key="objectID">3</int>
                                                <reference key="object" ref="741820390"/>
                                                <object class="NSMutableArray" key="children">
                                                        <bool key="EncodedWithXMLCoder">YES</bool>
-                                                       <reference ref="799499906"/>
+                                                       <reference ref="741820391"/>
                                                </object>
                                                <reference key="parent" ref="1006"/>
                                        </object>
                                        <object class="IBObjectRecord">
-                                               <int key="objectID">5</int>
-                                               <reference key="object" ref="799499906"/>
+                                               <int key="objectID">4</int>
+                                               <reference key="object" ref="741820391"/>
                                                <reference key="parent" ref="741820390"/>
                                        </object>
 
@@ -170,8 +169,11 @@
 					<string>1.editorWindowContentRectSynchronizationRect</string>
 					<string>2.IBPluginDependency</string>
 
+
                                        <string>4.IBPluginDependency</string>
+
                                        <string>5.IBPluginDependency</string>
+
 
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -190,8 +192,11 @@
 					<string>{{357, 418}, {100, 200}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 
+
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+
 
 				</object>
 			</object>

@@ -1,0 +1,14 @@
+                                       <object class="IBObjectRecord">
+                                               <int key="objectID"><%= options[:obj_offset] %></int>
+                                               <reference key="object" ref="<%= options[:id_offset] %>"/>
+                                               <object class="NSMutableArray" key="children">
+                                                       <bool key="EncodedWithXMLCoder">YES</bool>
+                                                       <reference ref="<%= options[:id_offset] + 1 %>"/>
+                                               </object>
+                                               <reference key="parent" ref="1006"/>
+                                       </object>
+                                       <object class="IBObjectRecord">
+                                               <int key="objectID"><%= options[:obj_offset] + 1 %></int>
+                                               <reference key="object" ref="<%= options[:id_offset] + 1 %>"/>
+                                               <reference key="parent" ref="<%= options[:id_offset] %>"/>
+                                       </object>

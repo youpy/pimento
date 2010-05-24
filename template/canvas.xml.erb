@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-<% if @dots.empty? %>
+<% if @components.empty? %>
 			<integer value="1" id="9"/>
 <% else %>
 			<integer value="2"/>
@@ -52,32 +52,7 @@
 					<int key="NSvFlags">256</int>
                                        <object class="NSMutableArray" key="NSSubviews">
                                                <bool key="EncodedWithXMLCoder">YES</bool>
-<% @dots.each do |dot| %>
-                                               <object class="NSButton" id="<%= dot.id %>">
-                                                       <reference key="NSNextResponder" ref="1006"/>
-                                                       <int key="NSvFlags">268</int>
-                                                       <string key="NSFrame">{{<%= dot.x - 19 %>, <%= @height - dot.y - 19 %>}, {39, 38}}</string>
-                                                       <reference key="NSSuperview" ref="1006"/>
-                                                       <bool key="NSEnabled">YES</bool>
-                                                       <object class="NSButtonCell" key="NSCell" id="<%= dot.cell_id %>">
-                                                               <int key="NSCellFlags">67239424</int>
-                                                               <int key="NSCellFlags2">0</int>
-                                                               <string key="NSContents"/>
-                                                               <object class="NSFont" key="NSSupport">
-                                                                       <string key="NSName">LucidaGrande</string>
-                                                                       <double key="NSSize">1.000000e+01</double>
-                                                                       <int key="NSfFlags">2843</int>
-                                                               </object>
-                                                               <reference key="NSControlView" ref="<%= dot.id %>"/>
-                                                               <int key="NSButtonFlags">-2037645057</int>
-                                                               <int key="NSButtonFlags2">135</int>
-                                                               <string key="NSAlternateContents"/>
-                                                               <string key="NSKeyEquivalent"/>
-                                                               <int key="NSPeriodicDelay">200</int>
-                                                               <int key="NSPeriodicInterval">25</int>
-                                                       </object>
-                                               </object>
-<% end %>
+<%= render_objects %>
                                        </object>
 					<string key="NSFrameSize">{<%= @width %>, <%= @height %>}</string>
 					<reference key="NSSuperview"/>
@@ -133,28 +108,14 @@
 						<reference key="object" ref="1006"/>
                                                <object class="NSMutableArray" key="children">
                                                        <bool key="EncodedWithXMLCoder">YES</bool>
-<% @dots.each do |dot| %>
-                                                       <reference ref="<%= dot.id %>"/>
+<% index = Pimento::Canvas::FIRST_ID + 1; @components.each do |component| %>
+                                                       <reference ref="<%= index %>"/>
+<% index += component.num_objects %>
 <% end %>
                                                </object>
 						<reference key="parent" ref="1005"/>
 					</object>
-<% index = 3; @dots.each do |dot| %>
-                                       <object class="IBObjectRecord">
-                                               <int key="objectID"><%= index += 1 %></int>
-                                               <reference key="object" ref="<%= dot.id %>"/>
-                                               <object class="NSMutableArray" key="children">
-                                                       <bool key="EncodedWithXMLCoder">YES</bool>
-                                                       <reference ref="<%= dot.cell_id %>"/>
-                                               </object>
-                                               <reference key="parent" ref="1006"/>
-                                       </object>
-                                       <object class="IBObjectRecord">
-                                               <int key="objectID"><%= index += 1 %></int>
-                                               <reference key="object" ref="<%= dot.cell_id %>"/>
-                                               <reference key="parent" ref="<%= dot.id %>"/>
-                                       </object>
-<% end %>
+<%= render_object_records %>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -171,9 +132,10 @@
 					<string>1.WindowOrigin</string>
 					<string>1.editorWindowContentRectSynchronizationRect</string>
 					<string>2.IBPluginDependency</string>
-<% index = 3; @dots.each do |dot| %>
-                                       <string><%= index += 1 %>.IBPluginDependency</string>
-                                       <string><%= index += 1 %>.IBPluginDependency</string>
+<% index = Pimento::Canvas::FIRST_OBJ + 1; @components.each do |component| %>
+<% component.num_objects.times do |i| %>
+                                       <string><%= index + i %>.IBPluginDependency</string>
+<% end %>
 <% end %>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -185,7 +147,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{0, 475}, {<%= @width %>, <%= @height %>}}</string>
 
-<% if @dots.empty? %>
+<% if @components.empty? %>
 					<reference ref="9"/>
 <% else %>
 <integer value="1"/>
@@ -193,9 +155,10 @@
 					<string>{<%= @top %>, <%= @left %>}</string>
 					<string>{{357, 418}, {<%= @width %>, <%= @height %>}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-<% @dots.each do |dot| %>
+<% @components.each do |component| %>
+<% component.num_objects.times do |i| %>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+<% end %>
 <% end %>
 				</object>
 			</object>
@@ -219,7 +182,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID"><%= (@dots.size * 2) + 3 %></int>
+			<int key="maxID"><%= (@components.inject(0) {|memo, component| memo + component.num_objects }) + 3 %></int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

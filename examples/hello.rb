@@ -2,7 +2,6 @@ require 'ubygems'
 require 'pimento'
 
 c = Pimento::Canvas.new(0, 0, 620, 200)
-c.step = 1
 
 # H
 c.line(20, 20, 20, 180)
