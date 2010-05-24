@@ -1,3 +1,5 @@
+# based on http://gist.github.com/411787
+
 require 'ubygems'
 require 'pimento'
 
