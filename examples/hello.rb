@@ -4,9 +4,9 @@ require 'pimento'
 c = Pimento::Canvas.new(0, 0, 620, 200)
 
 # H
-c.line(20, 20, 20, 180)
-c.line(20, 100, 100, 100)
-c.line(100, 20, 100, 180)
+c.line_with_dots(20, 20, 20, 180)
+c.line_with_dots(20, 100, 100, 100)
+c.line_with_dots(100, 20, 100, 180)
 
 # E
 c.line(140, 20, 140, 180)
