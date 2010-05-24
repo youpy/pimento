@@ -6,14 +6,12 @@ module Pimento
   class Canvas
     include Renderable
 
-    attr_accessor :step
     attr_reader :width, :height
 
     FIRST_ID = 741820390
     FIRST_OBJ = 3
 
     def initialize(top, left, width, height)
-      @step = 5
       @top = top
       @left = left
       @width = width
@@ -31,14 +29,30 @@ module Pimento
       w = (x2 - x1).abs
       h = (y2 - y1).abs
 
-      num_dots = ((w > h) ? w : h) / @step
-      num_dots.times do |i|
+      case
+      when y1 == y2
+        @components << Component.for(:horizontal_line).new(self, x, y, w)
+      when x1 == x2
+        @components << Component.for(:vertical_line).new(self, x, y, h)
+      else
+        line_with_dots(x1, y1, x2, y2)
+      end
+    end
+
+    def line_with_dots(x1, y1, x2, y2, step = 20)
+      x = x1
+      y = y1
+      w = (x2 - x1).abs
+      h = (y2 - y1).abs
+
+      num_dots = ((w > h) ? w : h) / step
+      (num_dots + 1).times do |i|
         point(x1 + ((x2 - x1) / num_dots * i).to_i, y1 + ((y2 - y1) / num_dots * i).to_i)
       end
     end
 
     def to_xml
-      XML::Document.string(render)
+      XML::Document.string(render('canvas'))
     end
 
     private

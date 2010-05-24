@@ -1,0 +1,26 @@
+<object class="NSSlider" id="<%= options[:id_offset] %>">
+  <reference key="NSNextResponder" ref="1006"/>
+  <int key="NSvFlags">268</int>
+  <string key="NSFrame">{{<%= x - 10 %>, <%= @canvas.height - y - height - 10 %>}, {21, <%= height + 21 %>}}</string>
+  <reference key="NSSuperview" ref="1006"/>
+  <bool key="NSEnabled">YES</bool>
+  <object class="NSSliderCell" key="NSCell" id="<%= options[:id_offset] + 1 %>">
+    <int key="NSCellFlags">67239424</int>
+    <int key="NSCellFlags2">0</int>
+    <string key="NSContents"/>
+    <object class="NSFont" key="NSSupport">
+      <string key="NSName">Helvetica</string>
+      <double key="NSSize">1.200000e+01</double>
+      <int key="NSfFlags">16</int>
+    </object>
+    <reference key="NSControlView" ref="<%= options[:id_offset] %>"/>
+    <double key="NSMaxValue">1.000000e+02</double>
+    <double key="NSMinValue">0.000000e+00</double>
+    <double key="NSValue"><%= rand(100) %></double>
+    <double key="NSAltIncValue">0.000000e+00</double>
+    <int key="NSNumberOfTickMarks">0</int>
+    <int key="NSTickMarkPosition">0</int>
+    <bool key="NSAllowsTickMarkValuesOnly">NO</bool>
+    <bool key="NSVertical">YES</bool>
+  </object>
+</object>

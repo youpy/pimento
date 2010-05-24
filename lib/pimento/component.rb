@@ -15,7 +15,8 @@ module Pimento
       end
 
       def for(type)
-        @@klasses[type].first
+        #@@klasses[type].first
+        @@klasses[type][rand(@@klasses[type].length)]
       end
     end
 
@@ -30,11 +31,36 @@ module Pimento
     end
 
     def render_object(id_offset)
-      render('ro', :id_offset => id_offset).to_s
+      render(template_name('ro'), :id_offset => id_offset).to_s
     end
 
     def render_object_record(id_offset, obj_offset)
-      render('or', :id_offset => id_offset, :obj_offset => obj_offset).to_s
+      render('or_%i' % num_objects, :id_offset => id_offset, :obj_offset => obj_offset).to_s
+    end
+
+    def template_name(suffix)
+      basename = Util.underscore(self.class.to_s.split(/::/).last)
+      [basename, suffix].join('_')
+    end
+  end
+
+  class DotComponent < Component; end
+
+  class HorizontalLineComponent < Component
+    attr_accessor :width
+
+    def initialize(canvas, x, y, width)
+      super(canvas, x, y)
+      @width = width
+    end
+  end
+
+  class VerticalLineComponent < Component
+    attr_accessor :height
+
+    def initialize(canvas, x, y, height)
+      super(canvas, x, y)
+      @height = height
     end
   end
 end

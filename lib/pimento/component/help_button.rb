@@ -1,5 +1,5 @@
 module Pimento
-  class RoundButton < DotComponent
+  class HelpButton < DotComponent
     handles :dot
   end
 end

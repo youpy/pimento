@@ -1,5 +1,5 @@
 module Pimento
-  class RoundButton < DotComponent
+  class DisclosureTriangle < DotComponent
     handles :dot
   end
 end
