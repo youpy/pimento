@@ -52,7 +52,8 @@ module Pimento
     end
 
     def to_xml
-      XML::Document.string(render('canvas'))
+      XML::Document.string(render('canvas'), :options =>
+        XML::Parser::Options::NOENT | XML::Parser::Options::NOBLANKS)
     end
 
     private
