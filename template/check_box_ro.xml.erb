@@ -1,0 +1,31 @@
+<object class="NSButton" id="<%= options[:id_offset] %>">
+  <reference key="NSNextResponder" ref="1006"/>
+  <int key="NSvFlags">268</int>
+  <string key="NSFrame">{{<%= x - 9 %>, <%= @canvas.height - y - 9 %>}, {18, 18}}</string>
+  <reference key="NSSuperview" ref="1006"/>
+  <bool key="NSEnabled">YES</bool>
+  <object class="NSButtonCell" key="NSCell" id="<%= options[:id_offset] + 1 %>">
+    <int key="NSCellFlags">-2080244224</int>
+    <int key="NSCellFlags2">0</int>
+    <string key="NSContents"></string>
+    <object class="NSFont" key="NSSupport">
+      <string key="NSName">LucidaGrande</string>
+      <double key="NSSize">1.300000e+01</double>
+      <int key="NSfFlags">1044</int>
+    </object>
+    <reference key="NSControlView" ref="<%= options[:id_offset] %>"/>
+    <int key="NSButtonFlags">1211912703</int>
+    <int key="NSButtonFlags2">130</int>
+    <object class="NSCustomResource" key="NSNormalImage">
+      <string key="NSClassName">NSImage</string>
+      <string key="NSResourceName">NSSwitch</string>
+    </object>
+    <object class="NSButtonImageSource" key="NSAlternateImage">
+      <string key="NSImageName">NSSwitch</string>
+    </object>
+    <string key="NSAlternateContents"/>
+    <string key="NSKeyEquivalent"/>
+    <int key="NSPeriodicDelay">200</int>
+    <int key="NSPeriodicInterval">25</int>
+  </object>
+</object>
