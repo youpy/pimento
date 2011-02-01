@@ -4,7 +4,7 @@ Draw graphics using Mac OS X GUI Components
 
 http://buycheapviagraonlinenow.com/files/pimento.png
 
-== Sypnosis
+== Synopsis
 
  require 'ubygems'
  require 'pimento'
