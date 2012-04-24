@@ -108,7 +108,7 @@
 						<reference key="object" ref="1006"/>
                                                <object class="NSMutableArray" key="children">
                                                        <bool key="EncodedWithXMLCoder">YES</bool>
-<% index = Pimento::Canvas::FIRST_ID + 1; @components.each do |component| %>
+<% index = Pimento::Canvas::FIRST_ID; @components.each do |component| %>
                                                        <reference ref="<%= index %>"/>
 <% index += component.num_objects %>
 <% end %>
