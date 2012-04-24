@@ -1,4 +1,5 @@
 module Pimento
+  VERSION = '0.0.2'
 end
 
 require 'pimento/renderable'
