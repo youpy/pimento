@@ -3,28 +3,6 @@
 require 'ubygems'
 require 'pimento'
 
-str = ARGV.shift
-exit unless str =~ /^[\d\w ]+$/
-x = 50
-c = Pimento::Canvas.new 0,0,x+str.size*x*2,x*4
-d = [
-  lambda {|i| c.line x+i*2*x,x,2*x+i*2*x,x },
-  lambda {|i| c.line x+i*2*x,2*x,2*x+i*2*x,2*x },
-  lambda {|i| c.line x+i*2*x,3*x,2*x+i*2*x,3*x },
-  lambda {|i| c.line x+i*2*x,x,x+i*2*x,2*x },
-  lambda {|i| c.line x+i*2*x,2*x,x+i*2*x,3*x },
-  lambda {|i| c.line 2*x+i*2*x,x,2*x+i*2*x,2*x },
-  lambda {|i| c.line 2*x+i*2*x,2*x,2*x+i*2*x,3*x },
-  lambda {|i| c.line x+i*2*x,x,1.5*x+i*2*x,2*x },
-  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,x },
-  lambda {|i| c.line x+i*2*x,3*x,1.5*x+i*2*x,2*x },
-  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,3*x },
-  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,2*x },
-  lambda {|i| c.line x+i*2*x,2*x,1.5*x+i*2*x,2*x },
-  lambda {|i| c.line 1.5*x+i*2*x,x,1.5*x+i*2*x,2*x },
-  lambda {|i| c.line 1.5*x+i*2*x,2*x,1.5*x+i*2*x,3*x },
-  lambda {|i| c.line x+i*2*x,x,2*x+i*2*x,3*x },
-]
 n = {
   ' ' => [],
   '0' => [0,2,3,4,5,6],
@@ -63,7 +41,39 @@ n = {
   'X' => [7,8,9,10],
   'Y' => [1,2,3,5,6],
   'Z' => [0,2,8,9],
+  '/' => [8,9],
+  '_' => [2],
+  '-' => [1],
+  ':' => [16,17],
+  '.' => [17],
 }
+
+str = ARGV.shift
+exit unless str =~ /^[\d\w \/\-:\.]+$/
+x = 50
+c = Pimento::Canvas.new 0,0,x+str.size*x*2,x*4
+
+d = [
+  lambda {|i| c.line x+i*2*x,x,2*x+i*2*x,x },
+  lambda {|i| c.line x+i*2*x,2*x,2*x+i*2*x,2*x },
+  lambda {|i| c.line x+i*2*x,3*x,2*x+i*2*x,3*x },
+  lambda {|i| c.line x+i*2*x,x,x+i*2*x,2*x },
+  lambda {|i| c.line x+i*2*x,2*x,x+i*2*x,3*x },
+  lambda {|i| c.line 2*x+i*2*x,x,2*x+i*2*x,2*x },
+  lambda {|i| c.line 2*x+i*2*x,2*x,2*x+i*2*x,3*x },
+  lambda {|i| c.line x+i*2*x,x,1.5*x+i*2*x,2*x },
+  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,x },
+  lambda {|i| c.line x+i*2*x,3*x,1.5*x+i*2*x,2*x },
+  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,3*x },
+  lambda {|i| c.line 1.5*x+i*2*x,2*x,2*x+i*2*x,2*x },
+  lambda {|i| c.line x+i*2*x,2*x,1.5*x+i*2*x,2*x },
+  lambda {|i| c.line 1.5*x+i*2*x,x,1.5*x+i*2*x,2*x },
+  lambda {|i| c.line 1.5*x+i*2*x,2*x,1.5*x+i*2*x,3*x },
+  lambda {|i| c.line x+i*2*x,x,2*x+i*2*x,3*x },
+  lambda {|i| c.point x+i*2*x,x },
+  lambda {|i| c.point x+i*2*x,3*x }
+]
+
 str.to_s.split(//).each_with_index do |ch, i|
   n[ch.upcase].reverse.each do |r|
     d[r].call i
